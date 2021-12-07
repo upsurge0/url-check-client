@@ -1,42 +1,48 @@
 import Google from "../../components/google/Google";
 import { useState, useContext } from "react";
-import Axios from "axios";
-import { myContext } from "../../AuthContext";
+import { AuthContext } from "../../context/AuthContext";
+import { loginCall } from "../../apiCalls";
+import { useNavigate } from "react-router";
 
 export default function Login() {
-    const [loginUsername, setLoginUsername] = useState("");
-    const [loginPassword, setLoginPassword] = useState("");
-    const [userObject, setUserObject] = useContext(myContext);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorDiv, setErrorDiv] = useState("");
 
-    const login = () => {
-        Axios({
-            method: "POST",
-            data: {
-                username: loginUsername,
-                password: loginPassword,
-            },
-            withCredentials: true,
-            url: "http://localhost:8000/auth/login",
-        }).then((res) => {
-            setUserObject(res.data);
-            window.location.href = "/";
-        });
+    const { error, dispatch } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const login = async (e) => {
+        e.preventDefault();
+        const res = await loginCall(
+            { email: email, password: password },
+            dispatch
+        );
+        if (res.success === true) {
+            navigate("/dashboard");
+        } else if (res.success === false) {
+            setErrorDiv("User doesn't exist or wrong credentials");
+        }
     };
 
     return (
         <div>
             <h1>Login</h1>
-            <input
-                placeholder="username"
-                onChange={(e) => setLoginUsername(e.target.value)}
-            />
-            <input
-                placeholder="password"
-                onChange={(e) => setLoginPassword(e.target.value)}
-            />
-            <button onClick={login}>Submit</button>
-
+            <form onSubmit={login}>
+                <input
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button type="submit">Submit</button>
+            </form>
             <Google />
+            <div>{error && errorDiv}</div>
         </div>
     );
 }
