@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { loginCall } from "../../apiCalls";
 import { useNavigate } from "react-router";
+import Logo from "../../components/logo/Logo";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -27,6 +28,7 @@ export default function Login() {
 
     return (
         <div>
+            <Logo />
             <h1>Login</h1>
             <form onSubmit={login}>
                 <input
