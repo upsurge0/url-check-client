@@ -1,6 +1,7 @@
 const style = {
     color: "#0052FF",
-    fontSize: "24px",
+    fontSize: "55px",
+    fontWeight: "700",
 };
 
 export default function Logo() {

@@ -1,0 +1,25 @@
+@use "../../scss/colors";
+
+.google {
+    height: 48px;
+    width: 392px;
+    background-color: white;
+    border: 1px solid colors.$grey_stroke;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+
+    &:hover {
+        background-color: #fcfcfc;
+    }
+
+    .googleIcon {
+        object-fit: cover;
+        width: 25px;
+        margin-left: 15px;
+        margin-right: 55px;
+    }
+}

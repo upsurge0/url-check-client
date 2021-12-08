@@ -1,41 +1,51 @@
 import Google from "../../components/google/Google";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { loginCall } from "../../apiCalls";
+import { registerCall } from "../../apiCalls";
 import { useNavigate } from "react-router";
 import Logo from "../../components/logo/Logo";
-import "./Login.scss";
+import "./Signup.scss";
 import { CircularProgress } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Signup() {
     const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [errorDiv, setErrorDiv] = useState("");
 
     const { isFetching, dispatch } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const login = async (e) => {
+    const register = async (e) => {
         e.preventDefault();
-        const res = await loginCall(
-            { email: email, password: password },
-            dispatch
-        );
-        if (res.success === true) {
-            navigate("/dashboard");
-        } else if (res.message) {
-            res.message = res.message.replace("username", "email");
-            setErrorDiv(res.message);
+
+        if (password !== confirmPassword) {
+            setErrorDiv("Passwords don't match");
+        } else {
+            setErrorDiv("");
+            const res = await registerCall(
+                { email: email, name: name, password: password },
+                dispatch
+            );
+
+            if (res.message) {
+                res.message = res.message.replace("username", "email");
+                setErrorDiv(res.message);
+            } else {
+                setErrorDiv("");
+                navigate("/dashboard");
+            }
         }
     };
 
     return (
         <div className="registerWrapper">
             <Logo />
-            <h1>Log In</h1>
+            <h1>Sign Up</h1>
             <div className="inputArea">
-                <form onSubmit={login}>
+                <form onSubmit={register}>
                     <div className="inputContainer">
                         <label for="email">Email</label>
                         <input
@@ -46,7 +56,16 @@ export default function Login() {
                             required
                         />
                     </div>
-
+                    <div className="inputContainer">
+                        <label for="name">Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                    </div>
                     <div className="inputContainer">
                         <label for="password">Password</label>
                         <input
@@ -58,6 +77,17 @@ export default function Login() {
                             required
                         />
                     </div>
+                    <div className="inputContainer">
+                        <label for="cpassword">Confirm Password</label>
+                        <input
+                            id="cpassword"
+                            type="password"
+                            value={confirmPassword}
+                            minLength="8"
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                    </div>
 
                     <button className="button" type="submit">
                         {isFetching ? (
@@ -66,7 +96,7 @@ export default function Login() {
                                 size="20px"
                             />
                         ) : (
-                            "Log In"
+                            "Create Free Account"
                         )}
                     </button>
                     <div className="errorDiv">{errorDiv}</div>
@@ -81,9 +111,9 @@ export default function Login() {
                 <Google />
             </div>
             <span className="linkToLogin">
-                Don't have an account?{" "}
-                <Link className="link" to="/signup">
-                    Sign Up
+                Already have an account?{" "}
+                <Link className="link" to="/login">
+                    Log In
                 </Link>
             </span>
         </div>

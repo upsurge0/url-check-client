@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <div style={style}>
             <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/signup">Signup</Link>
         </div>
     );
 }
