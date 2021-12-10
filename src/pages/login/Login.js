@@ -12,6 +12,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorDiv, setErrorDiv] = useState("");
+    document.body.style.overflow = "hidden";
 
     const { isFetching, dispatch } = useContext(AuthContext);
     const navigate = useNavigate();

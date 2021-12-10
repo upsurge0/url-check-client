@@ -6,6 +6,8 @@ const style = {
 };
 
 export default function Home() {
+    document.body.style.overflow = "auto";
+
     return (
         <div style={style}>
             <Link to="/login">Login</Link>

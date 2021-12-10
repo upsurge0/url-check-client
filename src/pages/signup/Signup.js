@@ -14,6 +14,7 @@ export default function Signup() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errorDiv, setErrorDiv] = useState("");
+    document.body.style.overflow = "hidden";
 
     const { isFetching, dispatch } = useContext(AuthContext);
     const navigate = useNavigate();
