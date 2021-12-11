@@ -18,13 +18,18 @@ export default function Dashboard() {
     };
 
     return (
-        <div style={style}>
-            {user && (
-                <>
-                    {user.name}
-                    <button onClick={logout}>Logout</button>
-                </>
-            )}
-        </div>
-    );
-}
+            <div className="registerWrapper">
+                
+                <div className="inputArea">
+                <h1>Detect Malicious and Phishing Websites</h1>
+    
+                    <div className="separator">
+                        <div className="vl"></div>
+                        <span>OR</span>
+                        <div className="vl"></div>
+                    </div>
+
+                </div>
+            </div>
+        );
+    }
