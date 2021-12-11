@@ -15,9 +15,9 @@ export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
     useEffect(() => {
-        axios.get("/user", { withCredentials: true }).then((res) => {
-            if (res.data) {
-                dispatch(isAuthenticated(res.data));
+        axios.get("/auth/user", { withCredentials: true }).then((res) => {
+            if (res.data.isAuth === true) {
+                dispatch(isAuthenticated(res.data.user));
             }
         });
     }, []);

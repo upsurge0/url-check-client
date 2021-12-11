@@ -1,0 +1,24 @@
+@use "../../scss/colors";
+
+.passed {
+    color: colors.$safe_link;
+    display: flex;
+    align-items: center;
+
+    .checkIcon {
+        margin-left: 20px;
+        width: 18px;
+        height: 18px;
+    }
+}
+.failed {
+    color: colors.$unsafe_link;
+    display: flex;
+    align-items: center;
+
+    .checkIcon {
+        margin-left: 20px;
+        width: 18px;
+        height: 18px;
+    }
+}

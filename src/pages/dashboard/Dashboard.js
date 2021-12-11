@@ -1,12 +1,11 @@
+import { useEffect } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { logoutCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
-
-const style = {
-    display: "flex",
-    flexDirection: "column",
-};
+import axios from "axios";
+import "./Dashboard.scss";
+import UrlResult from "../../components/urlResult/UrlResult";
 
 export default function Dashboard() {
     const { user, dispatch } = useContext(AuthContext);
@@ -17,14 +16,25 @@ export default function Dashboard() {
         navigate("/");
     };
 
+    useEffect(() => {
+        const check = async () => {
+            const res = await axios.post("/url/user", {
+                withCredentials: true,
+            });
+            console.log(res.data);
+        };
+
+        check();
+    }, []);
+
     return (
-        <div style={style}>
-            {user && (
-                <>
-                    {user.name}
-                    <button onClick={logout}>Logout</button>
-                </>
-            )}
+        <div className="DashboardWrapper">
+            <div className="resultsContainer">
+                <UrlResult />
+                <UrlResult />
+                <UrlResult />
+                <UrlResult />
+            </div>
         </div>
     );
 }
