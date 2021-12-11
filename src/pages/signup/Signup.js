@@ -43,7 +43,7 @@ export default function Signup() {
 
     return (
         <div className="registerWrapper">
-            <Logo />
+            <Logo/>
             <h1>Sign Up</h1>
             <div className="inputArea">
                 <form onSubmit={register}>
