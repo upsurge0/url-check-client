@@ -1,0 +1,94 @@
+@use "../../scss/colors";
+
+.registerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        font-weight: 400;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    input {
+        border: 1px solid colors.$grey_stroke;
+        border-radius: 3px;
+        width: 350px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        font-size: 16px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.inputArea {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 2px;
+    color: colors.$white;
+    background-color: colors.$primary;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+
+    &:hover {
+        background-color: colors.$primary_hover;
+    }
+}
+
+.errorDiv {
+    text-align: center;
+    margin-top: 10px;
+    color: colors.$unsafe_link;
+    height: 19.2px;
+}
+
+.separator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 90px;
+
+    .vl {
+        border-left: 1px solid colors.$light_brown;
+        height: 90px;
+    }
+
+    span {
+        color: colors.$dark_brown;
+        font-size: 14px;
+        margin: 10px 0px;
+    }
+}
+
+.linkToLogin {
+    margin-top: 20px;
+    font-size: 18px;
+
+    .link {
+        text-decoration: none;
+        color: colors.$light_blue;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
