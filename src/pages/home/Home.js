@@ -10,7 +10,7 @@ export default function Home() {
     document.body.style.overflow = "auto";
 
     return (
-        <div className="registerWrapper">
+        <div className="homeWrapper">
             <div className="inputArea">
                 <div class="yooyo">
                     <h1 class="herotitle">
@@ -20,8 +20,8 @@ export default function Home() {
                         Our website helps you protect yourself from dangerous
                         phishing scams
                     </h2>
-                    <div class="urlinput">
-                        <div className="inputContainer">
+                    <div class="urlInput">
+                        <div className="inputContainerHome">
                             <input
                                 id="email"
                                 type="email"

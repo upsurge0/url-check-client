@@ -1,50 +1,65 @@
 @use "../../scss/colors";
 
-.herotitle{
-font-family: Poppins;
-font-style: normal;
-font-weight: bold;
-font-size: 50px;
-line-height: 145%;
-margin-bottom: 10px;
-}
-
-.herodescription{
+.herotitle {
     font-family: Poppins;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 133%;
-margin-top: 10px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 145%;
+    margin-bottom: 10px;
 }
 
-.registerWrapper {
+.herodescription {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 133%;
+    margin-top: 10px;
+}
+
+.homeWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     padding-left: 10%;
-
 }
 
-.inputContainer {
+.inputContainerHome {
     display: flex;
-    flex-direction: column;
-    .button {
-    
-        height: 48px;
-        border: none;
-        border-radius: 2px;
-        color: colors.$white;
-        background-color: colors.$primary;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 600;
-    
-        &:hover {
-            background-color: colors.$primary_hover;
+
+    input {
+        border: 1px solid colors.$grey_stroke;
+        border-radius: 3px;
+        // width: 350px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        flex: 5;
+        &:focus {
+            outline: none;
         }
+    }
+
+    button {
+        flex: 1;
+        margin-left: 10px;
+    }
+}
+.button {
+    height: 48px;
+    border: none;
+    border-radius: 2px;
+    color: colors.$white;
+    background-color: colors.$primary;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+
+    &:hover {
+        background-color: colors.$primary_hover;
     }
 }
 
@@ -53,6 +68,3 @@ margin-top: 10px;
     align-items: center;
     justify-content: space-between;
 }
-
-
-
