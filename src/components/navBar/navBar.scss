@@ -1,0 +1,52 @@
+@use "../../scss/colors";
+
+.navBar {
+    display: flex;
+    padding: 0 150px;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: space-between;
+
+    .logoLink {
+        text-decoration: none;
+    }
+
+    .rightSide {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+
+        .link {
+            text-decoration: none;
+            color: colors.$black;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .rightSideUser {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-right: 30px;
+        }
+    }
+    .button {
+        height: 48px;
+        border: none;
+        border-radius: 2px;
+        color: colors.$white;
+        background-color: colors.$primary;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 0 15px;
+
+        &:hover {
+            background-color: colors.$primary_hover;
+        }
+    }
+}

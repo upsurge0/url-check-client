@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { logoutCall } from "../../apiCalls";
@@ -6,6 +6,8 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import "./Dashboard.scss";
 import UrlResult from "../../components/urlResult/UrlResult";
+import NavBar from "../../components/navBar/NavBar";
+import SearchBar from "../../components/searchBar/SearchBar";
 
 export default function Dashboard() {
     const { user, dispatch } = useContext(AuthContext);
@@ -28,13 +30,17 @@ export default function Dashboard() {
     }, []);
 
     return (
-        <div className="DashboardWrapper">
-            <div className="resultsContainer">
-                <UrlResult />
-                <UrlResult />
-                <UrlResult />
-                <UrlResult />
+        <>
+            <NavBar isLoggedIn={true} />
+            <div className="DashboardWrapper">
+                <SearchBar />
+                <div className="resultsContainer">
+                    <UrlResult />
+                    <UrlResult />
+                    <UrlResult />
+                    <UrlResult />
+                </div>
             </div>
-        </div>
+        </>
     );
 }
