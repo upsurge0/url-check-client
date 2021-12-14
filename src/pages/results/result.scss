@@ -1,57 +1,71 @@
 @use "../../scss/colors";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.herotitle{
-font-family: Poppins;
-font-style: normal;
-font-weight: bold;
-font-size: 50px;
-line-height: 145%;
-margin-bottom: 10px;
-}
-
-.herodescription{
-    font-family: Poppins;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 133%;
-margin-top: 10px;
-}
-
-.registerWrapper {
+.resultArea {
+    width: 762px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    padding-left: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 
+    .resultmessage{
+        margin-top: 200px;
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 0px;
+    }
+
+    .Passed{
+        color: colors.$safe_link ;
+    }
 }
 
-.inputContainer {
+.contextResult {
+    font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 17px;
+line-height: 133%;
+}
+
+.inputContainerResult {
     display: flex;
-    flex-direction: row;
-}
+    height: 48px;
+    font-family: Poppins;
+  
 
-.inputArea {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    input {
+        border: 1px solid colors.$grey_stroke;
+        border-radius: 3px;
+        padding: 15px 20px;
+        margin-bottom: 0px;
+        font-size: 17px;
+        flex: 5;
+        width: 400px;
+        &:focus {
+            outline: none;
+        }
+    }
 
+    button {
+        flex: 1;
+        margin-left: 10px;
+    }
+}
 .button {
-    
     height: 48px;
     border: none;
     border-radius: 2px;
     color: colors.$white;
     background-color: colors.$primary;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
 
     &:hover {
         background-color: colors.$primary_hover;
     }
 }
-
