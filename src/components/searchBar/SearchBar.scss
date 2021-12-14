@@ -1,0 +1,58 @@
+@use "../../scss/colors";
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 0px 15px;
+    border: 1px solid colors.$grey_stroke;
+    border-radius: 3px;
+    margin-bottom: 30px;
+
+    .leftSide {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        input {
+            display: flex;
+            margin-left: 71px;
+            font-size: 16px;
+            border: none;
+            width: 500px;
+            padding: 5px 0;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .rightSide {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .error {
+            display: flex;
+            white-space: nowrap;
+            color: colors.$unsafe_link;
+        }
+    }
+
+    button {
+        color: white;
+        background-color: colors.$primary;
+        border: none;
+        border-radius: 3px;
+        padding: 5px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 5px 0;
+        margin-left: 10px;
+
+        &:hover {
+            background-color: colors.$primary_hover;
+            cursor: pointer;
+        }
+    }
+}

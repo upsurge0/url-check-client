@@ -43,12 +43,12 @@ export default function Signup() {
 
     return (
         <div className="registerWrapper">
-            <Logo/>
+            <Logo />
             <h1>Sign Up</h1>
             <div className="inputArea">
                 <form onSubmit={register}>
                     <div className="inputContainer">
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
                         <input
                             id="email"
                             type="email"
@@ -58,7 +58,7 @@ export default function Signup() {
                         />
                     </div>
                     <div className="inputContainer">
-                        <label for="name">Name</label>
+                        <label htmlFor="name">Name</label>
                         <input
                             id="name"
                             type="text"
@@ -68,7 +68,7 @@ export default function Signup() {
                         />
                     </div>
                     <div className="inputContainer">
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input
                             id="password"
                             type="password"
@@ -79,7 +79,7 @@ export default function Signup() {
                         />
                     </div>
                     <div className="inputContainer">
-                        <label for="cpassword">Confirm Password</label>
+                        <label htmlFor="cpassword">Confirm Password</label>
                         <input
                             id="cpassword"
                             type="password"

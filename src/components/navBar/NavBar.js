@@ -6,13 +6,19 @@ import userAvatar from "./userAvatar.png";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
-const NavBar = ({ isLoggedIn = false }) => {
+const NavBar = ({ isLoggedIn = false, logout }) => {
     const { user } = useContext(AuthContext);
     const NavLoggedIn = () => {
         return (
             <div className="rightSideUser">
                 <span>{user ? user.name : "Username"}</span>
-                <Avatar src={userAvatar} />
+                <div className="dropdown">
+                    <Avatar className="avatar" src={userAvatar} />
+
+                    <div className="dropdown-content">
+                        <button onClick={logout}>Sign out</button>
+                    </div>
+                </div>
             </div>
         );
     };

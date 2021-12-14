@@ -33,6 +33,45 @@
         span {
             margin-right: 30px;
         }
+
+        .avatar {
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            padding-top: 7px;
+            margin-left: -25px;
+            min-width: 40px;
+            z-index: 1;
+        }
+
+        .dropdown-content button {
+            cursor: pointer;
+            border: 1px solid colors.$grey_stroke;
+            border-radius: 3px;
+            color: black;
+            background-color: colors.$white;
+            padding: 5px 10px;
+            text-decoration: none;
+            min-width: 90px;
+            display: block;
+
+            &:hover {
+                color: white;
+                background-color: colors.$primary_hover;
+            }
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+        }
     }
     .button {
         height: 48px;

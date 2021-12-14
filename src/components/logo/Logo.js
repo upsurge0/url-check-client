@@ -14,11 +14,11 @@ const Logo = ({ nav = false }) => {
         return <div style={style2}>url.check</div>;
     };
 
-    const normalLogo = () => {
+    const NormalLogo = () => {
         return <div style={style1}>url.check</div>;
     };
 
-    return <>{nav ? <NavBarLogo /> : <normalLogo />}</>;
+    return <>{nav ? <NavBarLogo /> : <NormalLogo />}</>;
 };
 
 export default Logo;

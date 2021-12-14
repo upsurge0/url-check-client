@@ -1,31 +1,48 @@
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import axios from "axios";
 import { useState } from "react";
+import "./SearchBar.scss";
 
-const SearchBar = () => {
-    const [url, setUrl] = useState("");
+const SearchBar = ({ check, handleTermChange }) => {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [error, setError] = useState("");
 
     const checkUrl = async (e) => {
         e.preventDefault();
-        const res = await axios.post("/url/user", {
-            url: url,
-            withCredentials: true,
-        });
-        console.log(res.data);
+        const re =
+            /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+        if (re.test(searchTerm)) {
+            setError("");
+            await axios.post("/url/user", {
+                url: searchTerm,
+                withCredentials: true,
+            });
+            handleTermChange("");
+            setSearchTerm("");
+            check();
+        } else {
+            setError("Please enter a valid url string");
+        }
     };
 
     return (
         <form className="searchBar" onSubmit={checkUrl}>
-            <div>
+            <div className="leftSide">
                 <SearchRoundedIcon />
                 <input
                     type="text"
-                    onChange={(e) => setUrl(e.target.value)}
-                    value={url}
+                    onChange={(e) => {
+                        handleTermChange(e.target.value);
+                        return setSearchTerm(e.target.value);
+                    }}
+                    value={searchTerm}
                     placeholder="Search or Verify"
                 />
             </div>
-            <button type="submit">Verify</button>
+            <div className="rightSide">
+                <div className="error">{error}</div>
+                <button type="submit">Verify</button>
+            </div>
         </form>
     );
 };

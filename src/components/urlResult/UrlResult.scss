@@ -8,7 +8,13 @@
     background-color: colors.$off_white;
     border-radius: 3px;
 
-    .number {
-        margin-right: 80px;
+    div {
+        // display: flex;
+        width: 500px;
+        // justify-content: space-between;
     }
+
+    // .number {
+    //     margin-right: 80px;
+    // }
 }

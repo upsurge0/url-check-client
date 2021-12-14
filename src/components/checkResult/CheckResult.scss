@@ -1,9 +1,10 @@
 @use "../../scss/colors";
 
-.passed {
-    color: colors.$safe_link;
+.passed,
+.failed {
     display: flex;
     align-items: center;
+    justify-content: end;
 
     .checkIcon {
         margin-left: 20px;
@@ -11,14 +12,10 @@
         height: 18px;
     }
 }
+
+.passed {
+    color: colors.$safe_link;
+}
 .failed {
     color: colors.$unsafe_link;
-    display: flex;
-    align-items: center;
-
-    .checkIcon {
-        margin-left: 20px;
-        width: 18px;
-        height: 18px;
-    }
 }
