@@ -37,5 +37,5 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "https://vibrant-jepsen-22b720.netlify.app/"
+    "proxy": "http://localhost:8000/"
 }

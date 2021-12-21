@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HomeImage from "../../components/homeImage/HomeImage";
 import NavBar from "../../components/navBar/NavBar";
@@ -7,14 +8,24 @@ import "./home.scss";
 export default function Home({ url, setUrl, res, setRes }) {
     document.body.style.overflow = "hidden";
     const navigate = useNavigate();
+    const [errorDiv, setErrorDiv] = useState("");
 
     const checkUrl = async (e) => {
         e.preventDefault();
-        const res1 = await axios.post("/url", {
-            url: url,
-        });
-        setRes(res1.data);
-        navigate("/result");
+        const re =
+            // eslint-disable-next-line
+            /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+        if (re.test(url)) {
+            setErrorDiv("");
+            const res1 = await axios.post("/url", {
+                url: url,
+            });
+            setRes(res1.data);
+            setUrl("");
+            navigate("/result");
+        } else {
+            setErrorDiv("Please enter a valid url.");
+        }
     };
 
     return (
@@ -43,9 +54,9 @@ export default function Home({ url, setUrl, res, setRes }) {
                             Verify
                         </button>
                     </form>
+                    <span className="errorDiv">{errorDiv}</span>
                 </div>
                 <div className="separator">
-                    {/* <img src="https://imgur.com/j4UwLrk.png"></img> */}
                     <HomeImage />
                 </div>
             </div>
