@@ -25,9 +25,9 @@ const NavBar = ({ isLoggedIn = false, logout }) => {
     const NavNotLoggedIn = () => {
         return (
             <div className="rightSide">
-                <Link className="link" to="/products">
+                {/* <Link className="link" to="/products">
                     Products
-                </Link>
+                </Link> */}
                 <Link className="link" to="/login">
                     Log In
                 </Link>

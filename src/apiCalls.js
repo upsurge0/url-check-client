@@ -24,11 +24,15 @@ export const registerCall = async (userCredential, dispatch) => {
     dispatch(LoginStart());
 
     const res = await axios.post("/auth/register", userCredential);
-    if (res.data.message) {
-        dispatch(LoginFailure(res.data));
-    } else {
-        dispatch(LoginSuccess(res.data));
-    }
+    try {
+        if (res.data.message) {
+            dispatch(LoginFailure(res.data));
+        } else {
+            await axios.post("/auth/login", userCredential);
+            dispatch(LoginSuccess(res.data));
+        }
+    } catch {}
+
     return res.data;
 };
 

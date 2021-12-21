@@ -25,7 +25,9 @@ export default function Dashboard() {
             withCredentials: true,
         });
 
-        setUrls(res.data.urls.reverse());
+        if (res.data.urls) {
+            setUrls(res.data.urls.reverse());
+        }
     };
 
     const handleTermChange = (searchTerm) => {

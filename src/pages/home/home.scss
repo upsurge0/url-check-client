@@ -1,6 +1,6 @@
 @use "../../scss/colors";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-.herotitle {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.heroTitle {
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
@@ -9,18 +9,19 @@
     margin-bottom: 10px;
 }
 
-.herodescription {
+.heroDescription {
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 133%;
     margin-top: 10px;
+    margin-bottom: 35px;
 }
 
 .homeWrapper {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -31,6 +32,7 @@
     display: flex;
     height: 48px;
     font-family: Poppins;
+    width: 100%;
 
     input {
         border: 1px solid colors.$grey_stroke;
@@ -65,8 +67,8 @@
     }
 }
 
-.inputArea {
+.homeWrapperContainer {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
 }
